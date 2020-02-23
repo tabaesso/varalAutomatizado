@@ -1,18 +1,18 @@
+//Variáveis com valores do Arduino
 int entradaDigitalSensor = 4; //Pino ligado ao D4 do sensor
 int entradaAnalogicoSensor = A5; //Pino ligado ao A5 do sensor
+//Sentidos do motor
+int Sentido1 = 7; //Ligado ao pino 2 do L293D
+int Sentido2 = 2; //Ligado ao pino 7 do L293D
+int botaoDeInicioSecagem = 3;
+int fimDeCursoVaralCheio = 6; // sensor q detecta se varal ta cheio
+int fimDeCursoVaranda = 8; // sensor q detecta se roupa recolheu
+
+//Variáveis declaradas
 int valorDigitalSensor = 0; //Armazena o valor lido do pino digital
 int valorAnalogicoSensor = 0; //Armazena o valor lido do pino analogico
 bool temRoupa = false;
 bool desliga = false;
-
-//Sentidos do motor
-int Sentido1 = 7; //Ligado ao pino 2 do L293D
-int Sentido2 = 2; //Ligado ao pino 7 do L293D
-
-//Inicio da secagem
-int botaoDeInicioSecagem = 3;
-int fimDeCursoVaralCheio = 6; // sensor q detecta se varal ta cheio
-int fimDeCursoVaranda = 8; // sensor q detecta se roupa recolheu
 int inicioSecagem = 0;
 int varalComRoupa = 0;
 int finalVaranda = 0;
@@ -55,7 +55,7 @@ void loop()
     desliga = false;
   }
 
-  if(varalComRoupa == 0){ //APERTA GATILHO 6
+  if(varalComRoupa == 0){
       temRoupa = true;
       Serial.print("TEM ROUPA NO VARAL");
       desligar_motor();
